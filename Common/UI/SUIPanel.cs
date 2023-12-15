@@ -1,6 +1,6 @@
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
+using Selenate.Common.Palette;
 using Terraria.GameContent.UI.Elements;
 
 namespace Selenate.Common.UI
@@ -15,8 +15,8 @@ namespace Selenate.Common.UI
 
 		public void DefaultColors()
 		{
-			BorderColor = new Color(220, 225, 250);
-			BackgroundColor = new Color(60, 65, 70) * 0.7f;
+			BorderColor = UIPalette.PanelBorder;
+			BackgroundColor = UIPalette.PanelBackground;
 		}
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
+using Selenate.Common.Palette;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -21,17 +22,17 @@ namespace Selenate.Common.UI
 
 		public Color ImageColor => Toggle == true ? ActiveImageColor : Color.Lerp(InactiveImageColor, ActiveImageColor, ActivityLerp.Value);
 
-		public Color ActiveImageColor { get; set; } = Color.White;
+		public Color ActiveImageColor { get; set; } = UIPalette.ButtonActiveImage;
 
-		public Color InactiveImageColor { get; set; } = Color.White * 0.7f;
+		public Color InactiveImageColor { get; set; } = UIPalette.ButtonInactiveImage;
 
 		public Asset<Texture2D> BackgroundTexture { get; set; }
 
 		public Color BackgroundColor => Toggle == true ? ActiveBackgroundColor : Color.Lerp(InactiveBackgroundColor, ActiveBackgroundColor, ActivityLerp.Value);
 
-		public Color ActiveBackgroundColor { get; set; } = Color.White * 0.33f;
+		public Color ActiveBackgroundColor { get; set; } = UIPalette.ButtonActiveBackground;
 
-		public Color InactiveBackgroundColor { get; set; } = Color.Transparent;
+		public Color InactiveBackgroundColor { get; set; } = UIPalette.ButtonInactiveImage;
 		
 		public float? ActivityLerp
 		{
@@ -45,9 +46,9 @@ namespace Selenate.Common.UI
 
 		public Asset<Texture2D> OutlineTexture { get; set; }
 
-		public Color OutlineColor { get; set; } = new Color(255, 215, 125) * 0.9f;
+		public Color OutlineColor { get; set; } = UIPalette.ButtonOutline;
 
-		public int CornerSize { get; set; } = 12;
+        public int CornerSize { get; set; } = 12;
 
 		public int BarSize { get; set; } = 4;
 
