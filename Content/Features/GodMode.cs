@@ -24,7 +24,7 @@ namespace Selenate.Content.Features
     public class GodModePlayer : ModPlayer
     {
         public override bool ImmuneTo(PlayerDeathReason damageSource, int cooldownCounter, bool dodgeable) =>
-            GodMode.Enabled ? true : base.ImmuneTo(damageSource, cooldownCounter, dodgeable);
+            GodMode.Enabled || base.ImmuneTo(damageSource, cooldownCounter, dodgeable);
 
         public override void PreUpdate()
         {

@@ -1,7 +1,4 @@
 ﻿using Selenate.Core.UI;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.ModLoader;
 
 namespace Selenate.Content.UI
 {
@@ -17,9 +14,11 @@ namespace Selenate.Content.UI
 
         public override void OnInitialize()
         {
-            HotBar hotBar = new HotBar();
-            hotBar.HAlign = 0.5f;
-            hotBar.VAlign = 1f;
+            HotBar hotBar = new HotBar
+            {
+                HAlign = 0.5f,
+                VAlign = 1f
+            };
             hotBar.Top.Pixels = -10;
             hotBar.OnLeftClick += HotBar_OnLeftClick;
             Append(hotBar);
