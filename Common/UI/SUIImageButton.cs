@@ -32,7 +32,7 @@ namespace Selenate.Common.UI
 
 		public Color ActiveBackgroundColor { get; set; } = UIPalette.ButtonActiveBackground;
 
-		public Color InactiveBackgroundColor { get; set; } = UIPalette.ButtonInactiveImage;
+		public Color InactiveBackgroundColor { get; set; } = UIPalette.ButtonInactiveBackground;
 		
 		public float? ActivityLerp
 		{
