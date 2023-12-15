@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria.GameContent.UI.Elements;
 
-namespace Selenate.UI
+namespace Selenate.Common.UI
 {
 	public class SUIPanel : UIPanel
 	{

@@ -6,7 +6,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.UI;
 
-namespace Selenate.UI
+namespace Selenate.Common.UI
 {
 	public class SUIImageButton : UIElement
 	{
