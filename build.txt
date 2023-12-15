@@ -1,0 +1,3 @@
+displayName = Selenate
+author = Selenate Dev Team
+version = 0.1
