@@ -9,20 +9,20 @@ namespace Selenate.Content.UI
 
         public override void OnInitialize()
         {
-            int interIconPadding = 4;
-            Height.Pixels = 44 + PaddingTop + PaddingBottom;
+            SUIButtonDisplay mainHotBar = new SUIButtonDisplay();
 
-            int left = 0;
-            // Consider: should a new instance be created?
-            foreach (HotBarIcon icon in LoadedFeatures)
-            {
-                icon.Left.Pixels = left;
-                Append(icon);
+            // Stinky code notice: these values are throwaways because they're needed to properly calculate the inner dimensions.
+            mainHotBar.Width.Pixels = LoadedFeatures.Count * 100;
+            mainHotBar.Height.Pixels = 100;
 
-                left += 44 + interIconPadding;
-            }
+            mainHotBar.AddRange(LoadedFeatures);
+            mainHotBar.Recalculate();
+            float width = mainHotBar.InnerListWidth;
+            float height = mainHotBar.GetTotalHeight();
+            Append(mainHotBar);
 
-            Width.Pixels = left + PaddingLeft + PaddingRight;
+            Width.Pixels = PaddingLeft + PaddingRight + width;
+            Height.Pixels = height + PaddingTop + PaddingBottom;
         }
     }
 }
