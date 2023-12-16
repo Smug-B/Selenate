@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Selenate.Content.UI;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace Selenate.Content.Features
 {
@@ -9,6 +10,11 @@ namespace Selenate.Content.Features
     {
         public NPCBrowser() : base()
         {
+        }
+
+        public override void Load(Mod mod)
+        {
+            Browser.BrowserFeatures.Add(this);
         }
 
         public override void DrawImage(SpriteBatch spriteBatch, Rectangle dimensions)
