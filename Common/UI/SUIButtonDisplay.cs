@@ -47,6 +47,11 @@ namespace Selenate.Common.UI
         {
             base.RecalculateChildren();
 
+            if (_items.Count == 0)
+            {
+                return;
+            }
+
             Vector2 inner = Vector2.Zero;
             Vector2 max = Vector2.Zero;
             float padding = _items.Count == 1 ? 0f : ListPadding;

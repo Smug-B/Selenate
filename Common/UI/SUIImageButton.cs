@@ -88,6 +88,8 @@ namespace Selenate.Common.UI
             {
                 Main.LocalPlayer.mouseInterface = true;
             }
+
+            base.Update(gameTime);
         }
 
         public override void MouseOver(UIMouseEvent evt)
