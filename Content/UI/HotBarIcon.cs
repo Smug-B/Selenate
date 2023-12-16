@@ -20,11 +20,11 @@ namespace Selenate.Content.UI
             Height.Pixels = 44;
         }
 
-        public void Load(Mod mod)
+        public virtual void Load(Mod mod)
         {
             HotBar.LoadedFeatures.Add(this);
         }
 
-        public void Unload() { }
+        public virtual void Unload() { }
     }
 }
