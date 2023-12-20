@@ -1,8 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Selenate.Content.UI;
+﻿using Selenate.Content.UI;
 using System.Collections.Generic;
-using Terraria;
 
 namespace Selenate.Content.Features
 {
@@ -24,7 +21,7 @@ namespace Selenate.Content.Features
 
             if (Toggle == true)
             {
-                hotBar.PopulateSecondaryHotBar(BrowserFeatures);
+                hotBar.QueueSecondaryHotBar(BrowserFeatures);
                 hotBar.SecondaryHotBarActive = true;
             }
             else

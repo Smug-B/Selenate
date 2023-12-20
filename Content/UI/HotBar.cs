@@ -20,6 +20,8 @@ namespace Selenate.Content.UI
 
         public bool SecondaryHotBarActive { get => SecondaryBackground.Active; set => SecondaryBackground.Active = value; }
 
+        protected Tuple<IList<HotBarIcon>, int> QueuedHotBar { get; set; }
+
         public override void OnInitialize()
         {
             SecondaryBackground = new SUITransPanel(Vector2.Zero, new Vector2(0, 100));
@@ -54,7 +56,10 @@ namespace Selenate.Content.UI
             height = hotBar.GetTotalHeight();
         }
 
-        public virtual void PopulateSecondaryHotBar(IList<HotBarIcon> hotBarIcons, int constructionSize = 100)
+        public virtual void QueueSecondaryHotBar(IList<HotBarIcon> hotBarIcons, int constructionSize = 100) 
+            => QueuedHotBar = new Tuple<IList<HotBarIcon>, int>(hotBarIcons, constructionSize);
+
+        protected virtual void PopulateSecondaryHotBar(IList<HotBarIcon> hotBarIcons, int constructionSize = 100)
         {
             SecondaryBackground.Width.Pixels = hotBarIcons.Count * constructionSize;
             SecondaryBackground.Height.Pixels = constructionSize;
@@ -68,8 +73,23 @@ namespace Selenate.Content.UI
 
         public override void Update(GameTime gameTime)
         {
-            // Recalculate();
             base.Update(gameTime);
+
+            if (QueuedHotBar == null)
+            {
+                SecondaryBackground.TransValue = 0.1f;
+                return;
+            }
+
+            SecondaryBackground.TransValue = 0;
+            if (SecondaryBackground.TransProgress > 0)
+            {
+                SecondaryBackground.TransProgress -= 0.1f;
+                return;
+            }
+
+            PopulateSecondaryHotBar(QueuedHotBar.Item1, QueuedHotBar.Item2);
+            QueuedHotBar = null;
         }
     }
 }
