@@ -1,8 +1,8 @@
 ﻿using Selenate.Core.UI;
 
-namespace Selenate.Content.UI
+namespace Selenate.Content.UI.States
 {
-    public class FeaturesMenu : AutoUIState
+    public class FeaturesState : AutoUIState
     {
         public override void PreLoad(ref string name)
         {
@@ -12,16 +12,25 @@ namespace Selenate.Content.UI
 
         public override UIHandler Load() => new UIHandler(UserInterface, "Vanilla: Inventory", LayerName);
 
+        public HotBar HotBar { get; private set; }
+
+        public ItemBrowser ItemBrowser { get; private set; }
+
         public override void OnInitialize()
         {
-            HotBar hotBar = new HotBar
+            HotBar = new HotBar
             {
                 HAlign = 0.5f,
                 VAlign = 1f
             };
-            hotBar.Top.Pixels = -10;
-            hotBar.OnLeftClick += HotBar_OnLeftClick;
-            Append(hotBar);
+            HotBar.Top.Pixels = -10;
+            HotBar.OnLeftClick += HotBar_OnLeftClick;
+            Append(HotBar);
+
+            ItemBrowser = new ItemBrowser();
+            ItemBrowser.Left.Pixels = 100;
+            ItemBrowser.Top.Pixels = 100;
+            Append(ItemBrowser);
         }
 
         private void HotBar_OnLeftClick(Terraria.UI.UIMouseEvent evt, Terraria.UI.UIElement listeningElement)
