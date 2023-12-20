@@ -143,7 +143,7 @@ namespace Selenate.Common.UI
 
         public virtual void DrawOutline(SpriteBatch spriteBatch, Rectangle dimensions)
         {
-            if (Toggle == false || OutlineTexture.Value == null)
+            if (!Toggle.HasValue || Toggle == false || OutlineTexture.Value == null)
             {
                 return;
             }
